@@ -65,7 +65,7 @@ export async function recordAction(
         post_id: params.postId || 'unknown',
         action_type: action === 'comment' ? 'comment' : 'submit',
         comment_text: params.value || params.text,
-        status: result,
+        status: result === 'failure' ? 'error' : result,
         metadata: { step: actionRecord.step, params },
       });
     } catch (err) {
